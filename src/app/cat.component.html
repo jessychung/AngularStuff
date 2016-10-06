@@ -1,0 +1,9 @@
+<ul>
+  <li *ngFor="let cat of cats"
+      [class.active]="cat === selectedCat"
+      (click)="onSelect(cat)">
+    {{cat.name}}
+  </li>
+</ul>
+
+<cat-detail [cat]="selectedCat"></cat-detail>

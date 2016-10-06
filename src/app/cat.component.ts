@@ -4,16 +4,13 @@ import { Cat } from './cat';
 import { CatService } from './cat.service';
 
 @Component({
-  selector: 'my-app',
-  templateUrl: './app.component.html',
+  selector: 'my-cats',
+  templateUrl: './cat.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [ CatService],
   encapsulation: ViewEncapsulation.None
 })
 
-export class AppComponent implements OnInit {
-
-  title = 'Cats';
+export class CatComponent implements OnInit {
 
   cats: Cat[];
   selectedCat: Cat;

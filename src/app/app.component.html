@@ -1,11 +1,5 @@
 <h1>{{title}}</h1>
+<a routerLink="/cats">Look at cats</a>
+<router-outlet></router-outlet>
 
-<ul>
-  <li *ngFor="let cat of cats"
-      [class.active]="cat === selectedCat"
-      (click)="onSelect(cat)">
-    {{cat.name}}
-  </li>
-</ul>
-
-<cat-detail [cat]="selectedCat"></cat-detail>
+<!--<my-cats></my-cats>-->

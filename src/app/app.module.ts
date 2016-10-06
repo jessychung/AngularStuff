@@ -8,11 +8,13 @@ import { AppComponent } from './app.component';
 import {CatDetailComponent} from "./cat-detail.component";
 import {CatService} from "./cat.service";
 import {CatComponent} from "./cat.component";
+import {DashboardComponent} from "./dashboard.component";
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    DashboardComponent,
     CatDetailComponent,
     CatComponent
   ],

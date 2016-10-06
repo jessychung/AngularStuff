@@ -18,7 +18,6 @@ export class CatComponent implements OnInit {
   constructor(private catService: CatService) { }
 
   getCats(): void {
-    //this.cats = this.catService.getCats();
     this.catService.getCats().then(cats => this.cats = cats);
   }
 

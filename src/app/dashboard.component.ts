@@ -1,7 +1,24 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+
+import { Cat } from './cat';
+import { CatService } from './cat.service';
 
 @Component({
   selector: 'dashboard',
-  template: '<h3>Dashboard</h3>'
+  templateUrl: 'dashboard.component.html'
 })
-export class DashboardComponent { }
+export class DashboardComponent implements OnInit {
+
+  cats: Cat[] = [];
+
+  constructor(private catService: CatService) { }
+
+  getCats(): void {
+    this.catService.getCats().then(cats => this.cats = cats.slice(1,2));
+  }
+
+  ngOnInit(): void {
+    this.getCats();
+  }
+
+}

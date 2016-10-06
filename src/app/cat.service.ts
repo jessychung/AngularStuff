@@ -6,7 +6,7 @@ import { CATS } from './list-of-cats';
 
 @Injectable()
 export class CatService {
-  getCats(): Cat[] {
-    return CATS;
+  getCats(): Promise<Cat[]>  {
+    return Promise.resolve(CATS) ;
   }
 }

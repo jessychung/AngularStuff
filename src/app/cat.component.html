@@ -6,4 +6,8 @@
   </li>
 </ul>
 
-<cat-detail [cat]="selectedCat"></cat-detail>
+<div *ngIf="selectedCat">
+  {{selectedCat.name | uppercase}} is the best cat.
+
+  <button (click)="gotoDetail()" >view details</button>
+</div>

@@ -1,9 +1,11 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Cat } from './cat';
 import { CatService } from './cat.service';
 
 @Component({
+  moduleId: module.name,
   selector: 'my-cats',
   templateUrl: './cat.component.html',
   styleUrls: ['./app.component.css'],

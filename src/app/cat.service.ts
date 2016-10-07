@@ -10,9 +10,14 @@ export class CatService {
     return Promise.resolve(CATS);
   }
 
+  getACat(name: string): Promise<Cat> {
+    return this.getCats()
+      .then(cats => cats.find(cat => cat.name === name));
+  }
+
   //fake slow connection
 
-  getCatssSlowly(): Promise<Cat[]> {
+  getCatssSlowly(): Promise<Cat> {
     return new Promise<Cat[]>(resolve =>
       setTimeout(resolve, 2000)) // delay 2 seconds
       .then(() => this.getCats());

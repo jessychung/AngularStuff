@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Cat } from './cat';
 import { CatService } from './cat.service';
@@ -11,7 +12,10 @@ export class DashboardComponent implements OnInit {
 
   cats: Cat[] = [];
 
-  constructor(private catService: CatService) { }
+  constructor(
+    private catService: CatService,
+    private router: Router
+  ) { }
 
   getCats(): void {
     this.catService.getCats().then(cats => this.cats = cats.slice(1,2));
@@ -19,6 +23,11 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCats();
+  }
+
+  gotoDetail(cat: Cat): void {
+    let link = ['/detail', hero.name];
+    this.router.navigate(link);
   }
 
 }

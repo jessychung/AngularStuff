@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import {CatComponent} from './cat.component';
 import {DashboardComponent} from "./dashboard.component";
+import {CatDetailComponent} from "./cat-detail.component";
 
 const appRoutes: Routes = [
   {
@@ -12,6 +13,10 @@ const appRoutes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent
+  },
+  {
+    path: 'detail/:name',
+    component: CatDetailComponent
   },
   {
     path: '',

@@ -17,7 +17,10 @@ export class CatComponent implements OnInit {
   cats: Cat[];
   selectedCat: Cat;
 
-  constructor(private catService: CatService) { }
+  constructor(
+    private catService: CatService,
+    private router: Router
+  ) { }
 
   getCats(): void {
     this.catService.getCats().then(cats => this.cats = cats);
@@ -31,4 +34,8 @@ export class CatComponent implements OnInit {
     this.selectedCat = cat;
   }
 
+  gotoDetail(): void {
+    let link = ['/detail', this.selectedCat.name];
+    this.router.navigate(link);
+  }
 }

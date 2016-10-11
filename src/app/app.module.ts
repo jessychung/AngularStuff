@@ -13,6 +13,9 @@ import {CatDetailComponent} from "./cat-detail.component";
 import {CatService} from "./cat.service";
 import {CatComponent} from "./cat.component";
 import {DashboardComponent} from "./dashboard.component";
+import {CatSearchComponent} from "./cat-search.component";
+
+import './rxjs-extensions';
 
 
 @NgModule({
@@ -20,7 +23,8 @@ import {DashboardComponent} from "./dashboard.component";
     AppComponent,
     DashboardComponent,
     CatDetailComponent,
-    CatComponent
+    CatComponent,
+    CatSearchComponent
   ],
   imports: [
     BrowserModule,

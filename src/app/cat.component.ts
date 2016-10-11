@@ -38,4 +38,24 @@ export class CatComponent implements OnInit {
     let link = ['/detail', this.selectedCat.name];
     this.router.navigate(link);
   }
+
+  add(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.catService.create(name)
+      .then(cat => {
+        this.cats.push(cat);
+        this.selectedCat = null;
+      });
+  }
+
+  delete(cat: Cat): void {
+    this.catService
+      .delete(cat.id)
+      .then(() => {
+        this.cats = this.cats.filter(h => h !== cat);
+        if (this.selectedCat === cat) { this.selectedCat = null; }
+      });
+  }
+
 }

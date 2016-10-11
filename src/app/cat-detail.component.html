@@ -1,5 +1,6 @@
 <div *ngIf="cat">
   <h3>{{cat.name}} is a {{cat.breed}}</h3>
+  <input [(ngModel)]="cat.name" placeholder="change name"/>
   <input [(ngModel)]="cat.breed" placeholder="change breed"/>
   <button (click)="save()">Save</button>
 </div>

@@ -12,6 +12,7 @@ export class CatService {
   private catsUrl = 'app/cats';
   private headers = new Headers({'Content-Type': 'application/json'});
 
+
   constructor(private http: Http) { }
 
   getCats(): Promise<Cat[]>  {
@@ -27,7 +28,6 @@ export class CatService {
   }
 
   update(cat: Cat): Promise<Cat> {
-    console.log('update');
     const url = `${this.catsUrl}/${cat.id}`;
     console.log(url);
     return this.http
@@ -37,7 +37,11 @@ export class CatService {
       .catch(this.handleError);
   }
 
+
+  //prepping input for http
+
   create(name: string): Promise<Cat> {
+    console.log(this.catsUrl);
     return this.http
       .post(this.catsUrl, JSON.stringify({name: name}), {headers: this.headers})
       .toPromise()
@@ -49,7 +53,7 @@ export class CatService {
     const url = `${this.catsUrl}/${id}`;
     return this.http.delete(url, {headers: this.headers})
       .toPromise()
-      .then(() => null)
+      .then()
       .catch(this.handleError);
   }
 

@@ -5,7 +5,6 @@ import { Cat } from './cat';
 import { CatService } from './cat.service';
 
 @Component({
-  moduleId: module.name,
   selector: 'my-cats',
   templateUrl: './cat.component.html',
   styleUrls: ['./app.component.css'],
@@ -13,6 +12,8 @@ import { CatService } from './cat.service';
 })
 
 export class CatComponent implements OnInit {
+
+  title = "Manage Cats";
 
   cats: Cat[];
   selectedCat: Cat;
@@ -23,7 +24,7 @@ export class CatComponent implements OnInit {
   ) { }
 
   getCats(): void {
-    this.catService.getCats().then(cats => this.cats = cats);
+    this.catService.getCats().then(cats => this.cats = cats); // inputting data into Cat[](type)
   }
 
   ngOnInit(): void {
@@ -43,19 +44,27 @@ export class CatComponent implements OnInit {
     name = name.trim();
     if (!name) { return; }
     this.catService.create(name)
-      .then(cat => {
-        this.cats.push(cat);
+      .then(dog => {
+        console.log(dog);
+        this.cats.push(dog);
         this.selectedCat = null;
       });
   }
+
+  // filter function (y)
+  // {
+  //   return y !== cat;
+  // }
 
   delete(cat: Cat): void {
     this.catService
       .delete(cat.id)
       .then(() => {
-        this.cats = this.cats.filter(h => h !== cat);
-        if (this.selectedCat === cat) { this.selectedCat = null; }
+        this.cats = this.cats.filter(y => y !== cat); //get rid of selected one in this.cats, keep all the other cats
+        if (this.selectedCat === cat) { this.selectedCat = null; } //hide details if deleted
       });
   }
+
+
 
 }

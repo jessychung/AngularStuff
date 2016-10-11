@@ -1,8 +1,17 @@
+<h3>{{title}}</h3>
+
 <div>
-  <label>cat name:</label> <input #catName />
-  <button (click)="add(catName.value); catName.value=''">
-    Add
-  </button>
+
+  <!--<form (ngSubmit)="onSubmit()" #catForm="ngForm">-->
+    <label>Cat name:</label> <input #catName />
+    <label>Cat breed:</label> <input #catBreed />
+
+    <button type="submit" (click)="add(catName.value); catName.value=''">
+      Add
+    </button>
+
+  <!--</form>-->
+
 </div>
 
 <ul>

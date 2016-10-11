@@ -7,10 +7,13 @@ import { Cat } from './cat';
 
 @Injectable()
 export class CatSearchService {
+
   constructor(private http: Http) {}
+
   search(term: string): Observable<Cat[]> {
     return this.http
       .get(`app/cats/?name=${term}`)
       .map((r: Response) => r.json().data as Cat[]);
   }
+
 }

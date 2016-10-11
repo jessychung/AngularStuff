@@ -20,9 +20,7 @@ export class CatDetailComponent implements OnInit {
     private catService: CatService,
     private test: ActivatedRoute,
     private location: Location
-  ) {
-
-  }
+  ) {}
 
   ngOnInit(): void {
     this.test.params.forEach((params: Params) => {
@@ -30,6 +28,11 @@ export class CatDetailComponent implements OnInit {
       this.catService.getACat(name)
         .then(cat => this.cat = cat);
     });
+  }
+
+  save(): void {
+    this.catService.update(this.cat)
+      .then(() => this.goBack());
   }
 
   goBack(): void {

@@ -10,6 +10,7 @@ import { Cat } from './cat';
 export class CatService {
 
   private catsUrl = 'app/cats';
+  private headers = new Headers({'Content-Type': 'application/json'});
 
   constructor(private http: Http) { }
 
@@ -20,14 +21,24 @@ export class CatService {
       .catch(this.handleError);
   }
 
-  private handleError(error: any): Promise<any> {
-    console.error('An error occurred', error); // for demo purposes only
-    return Promise.reject(error.message || error);
-  }
-
   getACat(name: string): Promise<Cat> {
     return this.getCats()
       .then(cats => cats.find(cat => cat.name === name));
+  }
+
+  update(cat: Cat): Promise<Cat> {
+    console.log('update');
+    const url = `${this.catsUrl}/${cat.id}`;
+    console.log(url);
+    return this.http
+      .put(url, JSON.stringify(cat), {headers: this.headers})
+      .toPromise()
+      .then(() => cat)
+      .catch(this.handleError);
+  }
+  private handleError(error: any): Promise<any> {
+    console.error('An error occurred', error); // for demo purposes only
+    return Promise.reject(error.message || error);
   }
 
   //fake slow connection

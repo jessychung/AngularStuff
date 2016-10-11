@@ -1,3 +1,10 @@
+<div>
+  <label>cat name:</label> <input #catName />
+  <button (click)="add(catName.value); catName.value=''">
+    Add
+  </button>
+</div>
+
 <ul>
   <li *ngFor="let cat of cats"
       [class.active]="cat === selectedCat"

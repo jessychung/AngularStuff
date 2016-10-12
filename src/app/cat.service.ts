@@ -37,13 +37,11 @@ export class CatService {
       .catch(this.handleError);
   }
 
-
   //prepping input for http
-
-  create(name: string): Promise<Cat> {
+  create(name: string, breed:string): Promise<Cat> {
     console.log(this.catsUrl);
     return this.http
-      .post(this.catsUrl, JSON.stringify({name: name}), {headers: this.headers})
+      .post(this.catsUrl, JSON.stringify({name: name, breed: breed}), {headers: this.headers})
       .toPromise()
       .then(res => res.json().data)
       .catch(this.handleError);

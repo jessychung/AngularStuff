@@ -9,11 +9,11 @@ import { Cat } from './cat';
 @Component({
   selector: 'cat-detail',
   templateUrl: 'cat-detail.component.html',
-  styleUrls: ['./app.component.css'],
   encapsulation: ViewEncapsulation.None
 })
 
 export class CatDetailComponent implements OnInit {
+
   @Input() cat: Cat;
 
   constructor(

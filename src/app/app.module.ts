@@ -7,6 +7,7 @@ import { routing } from './app.routing';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './inmemory.service';
 
+import { AlertModule } from 'ng2-bootstrap/ng2-bootstrap';
 
 import { AppComponent } from './app.component';
 import {CatDetailComponent} from "./cat-detail.component";
@@ -31,6 +32,7 @@ import './rxjs-extensions';
     FormsModule,
     HttpModule,
     routing,
+    AlertModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService)
   ],
   providers: [CatService],

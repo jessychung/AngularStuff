@@ -45,6 +45,7 @@ export class CatComponent implements OnInit {
     this.submitted = true;
   }
 
+
   get diagnostic() { return JSON.stringify(this.cats); }
 
   add(name: string, breed: string, pp: any): void {
